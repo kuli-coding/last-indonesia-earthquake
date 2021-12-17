@@ -36,25 +36,21 @@ def extration_data():
         location = None
         be_perceived = None
 
-
-
         for res in conclusion:
-                print(i, res)
-                if i == 1:
-                    magnitudo = res.text
-                elif i == 2:
-                    depth = res.text
-                elif i == 3:
-                    coordinate = res.text.split(' - ')
-                    ls = coordinate[0]
-                    bt = coordinate[1]
-                elif i == 4:
-                    location = res.text
-                elif i == 5:
-                    be_perceived = res.text
-                i = i+1
 
-
+            if i == 1:
+                magnitudo = res.text
+            elif i == 2:
+                depth = res.text
+            elif i == 3:
+                coordinate = res.text.split(' - ')
+                ls = coordinate[0]
+                bt = coordinate[1]
+            elif i == 4:
+                location = res.text
+            elif i == 5:
+                be_perceived = res.text
+            i = i + 1
 
         conclusion = dict()
         conclusion['date'] = date
@@ -68,9 +64,11 @@ def extration_data():
     else:
         return None
 
+
 def show_data(result):
     if result is None:
         print("No one can find data last eartquake data")
+        return
     print('The last eartquake based on BMKG')
     print(f"Date {result['date']}")
     print(f"Time {result['time']}")
